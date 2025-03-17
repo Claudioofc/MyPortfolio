@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
                                 <WorkspacePremiumIcon />
                                 <Typography textAlign="center" fontWeight={600}>Experiência</Typography>
                                 <Typography textAlign="center">4+ anos</Typography>
-                                <Typography textAlign="center">Desenvolvedor FullStack</Typography>
+                                <Typography textAlign="center">Desenvolvedor Full Stack</Typography>
                             </StyledCard>
                         </AnimationComponent>
                     </Grid>
