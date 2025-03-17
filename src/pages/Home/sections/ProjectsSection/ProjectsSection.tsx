@@ -11,18 +11,20 @@ const ProjectsSection: React.FC = () => {
     return (
         <StyledExperience>
             <Container maxWidth="lg">
-                <Box id="projects" pt={5} pb={3}>
-                    <Typography variant="h2" textAlign="center" color="primary.contrastText">Projetos</Typography>
+                <Box id="projects" pt={{ xs: 3, sm: 5 }} pb={{ xs: 2, sm: 3 }}>
+                    <Typography variant="h2" textAlign="center" color="primary.contrastText">
+                        Projetos
+                    </Typography>
                 </Box>
-                <Grid container spacing={5} pb={3} justifyContent="center">
-                    <Grid size = {{ md: 6}}>
+                <Grid container spacing={{ xs: 3, sm: 5 }} pb={3} justifyContent="center">
+                    <Grid size=  {{xs: 12, sm: 6, md:4}}>
                         <AnimationComponent moveDirection="right">
                             <Box 
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 
                                     alignItems: 'center', 
-                                    height: '300px', 
+                                    height: { xs: '200px', sm: '300px' }, 
                                     backgroundColor: 'grey.300', 
                                     borderRadius: 2 
                                 }}
@@ -36,7 +38,7 @@ const ProjectsSection: React.FC = () => {
                 </Grid>
             </Container>
         </StyledExperience>
-    )
+    );
 }
 
 export default ProjectsSection;
