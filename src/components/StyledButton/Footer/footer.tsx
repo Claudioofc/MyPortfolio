@@ -38,8 +38,12 @@ const Footer: React.FC = () => {
                             <WhatsAppIcon />
                         </IconButton>
                     </Box>
-                    <Typography textAlign="center">
-                        © 2024 Tiago dos Santos - All rights reserved
+                    <Typography textAlign="center"
+                     variant="body2" 
+                     color="textSecondary" 
+                     sx={{ fontSize: '0.875rem' }}>
+                        © 2025 Tiago dos Santos | Desenvolvido em React + TypeScript + Vite | Todos os direitos reservados
+                        
                     </Typography>
                 </Container>
             </Box>
