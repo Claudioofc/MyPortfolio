@@ -1,9 +1,14 @@
-import { Box, Container, IconButton, Typography } from "@mui/material"
+import { Box, Container, IconButton, Typography } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
 const Footer: React.FC = () => {
+    const handleEmail = () => {
+        const emailAddress = 'tiagosantos.01016@gmail.com';
+        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+        window.open(mailtoLink, '_blank');
+    };
 
     return (
         <>
@@ -16,7 +21,7 @@ const Footer: React.FC = () => {
                         <IconButton onClick={() => window.open("https://www.linkedin.com/in/tiagosantos016/")}>
                             <LinkedInIcon />
                         </IconButton>
-                        <IconButton href="mailto:tiagosantos.01016@gmail.com" target="_blank">
+                        <IconButton onClick={handleEmail}> {/* Use o método handleEmail */}
                             <EmailIcon />
                         </IconButton>
                     </Box>
@@ -26,7 +31,7 @@ const Footer: React.FC = () => {
                 </Container>
             </Box>
         </>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

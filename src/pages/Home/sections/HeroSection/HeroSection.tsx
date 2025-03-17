@@ -49,13 +49,11 @@ const HeroSection: React.FC = () => {
     };
 
     const handleEmail = () => {
-        const emailAddress = 'tiagosantos.01016@gmail.com';
-        const subject = 'Subject';
-        const body = 'Hello! I saw your portfolio...';
-
-        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(mailtoLink);
-    }
+      const emailAddress = 'tiagosantos.01016@gmail.com';
+      
+      const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+      window.open(mailtoLink, '_blank'); // Isso abre o Gmail em uma nova aba
+  };
 
     return (
         <>
