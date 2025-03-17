@@ -7,6 +7,7 @@ import StyledButton from "../../../../components/StyledButton/StyledButton";
 import CV from "../../../../assets/images/pdfs/CV_TiagoSantos .pdf"
 import { AnimatedBackground } from "../../../../components/StyledButton/AnimatedBackground/AnimatedBackground";
 import Typewriter from "../../../../components/StyledButton/Typewriter/Typewriter";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const HeroSection: React.FC = () => {
 
@@ -55,6 +56,14 @@ const HeroSection: React.FC = () => {
       window.open(mailtoLink, '_blank'); // Isso abre o Gmail em uma nova aba
   };
 
+  const handleWhatsApp = () => {
+    const phoneNumber = '5519998059027'; // Coloque seu número de telefone aqui com DDD (exemplo: 55XX999999999)
+    const message = 'Olá, gostaria de conversar sobre o seu trabalho!'; // Mensagem inicial
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+  };
+
+
     return (
         <>
             <StyledHero>
@@ -93,6 +102,14 @@ const HeroSection: React.FC = () => {
                                             </Typography>
                                         </StyledButton>
                                     </Grid>
+                                    <Grid size={{ xs: 10, md: 4 }}>
+                                    <StyledButton onClick={() => handleWhatsApp()}>
+                                        <WhatsAppIcon />
+                                        <Typography>
+                                            WhatsApp
+                                        </Typography>
+                                    </StyledButton>
+                                </Grid>
                                 </Grid>
                             </Box>
                         </Grid>
