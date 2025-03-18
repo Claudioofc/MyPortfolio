@@ -2,8 +2,10 @@
   "name": "my-portfolio-init",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://tiagostz.github.io/my-portfolio",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
