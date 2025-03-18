@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './src/App.tsx'
+import App from './App.tsx'
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
-import theme from './src/theme.ts';
+import theme from './theme.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
