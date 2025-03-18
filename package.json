@@ -1,13 +1,9 @@
 {
-  "name": "my-portfolio-init",
+  "name": "my-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://tiagostz.github.io/src/main.tsx",
   "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
