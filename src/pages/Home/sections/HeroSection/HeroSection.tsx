@@ -53,12 +53,12 @@ const HeroSection: React.FC = () => {
       const emailAddress = 'tiagosantos.01016@gmail.com';
       
       const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
-      window.open(mailtoLink, '_blank'); // Isso abre o Gmail em uma nova aba
+      window.open(mailtoLink, '_blank');
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = '5519998059027'; // Coloque seu número de telefone aqui com DDD (exemplo: 55XX999999999)
-    const message = 'Olá, gostaria de conversar sobre o seu trabalho!'; // Mensagem inicial
+    const phoneNumber = '5519998059027'; 
+    const message = 'Olá, gostaria de conversar sobre o seu trabalho!'; 
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
   };
