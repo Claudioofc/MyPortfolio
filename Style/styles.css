@@ -962,7 +962,12 @@ span {
         height: 18rem;
     }
 
-    .skills-container,
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 40rem;
+        padding: 0 1rem;
+    }
+
     .certificates-container,
     .projects-container {
         max-width: 40rem;
@@ -998,7 +1003,12 @@ span {
         height: 16rem;
     }
 
-    .skills-container,
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 35rem;
+        gap: 1.5rem;
+    }
+
     .certificates-container,
     .projects-container {
         max-width: 35rem;
