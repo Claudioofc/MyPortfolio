@@ -77,7 +77,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
 }
 
 .header {
@@ -126,27 +125,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-color);
-    position: relative;
-}
-
-.home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.home > * {
-    position: relative;
-    z-index: 1;
 }
 
 .home-content h3 {
@@ -243,8 +221,6 @@ span {
     align-items: center;
     gap: 2rem;
     background: var(--snd-bg-color);
-    min-height: auto;
-    padding: 5rem 3% 3rem;
 }
 
 .about-img img {
@@ -273,30 +249,6 @@ span {
     font-family: 'Nunito', sans-serif;
     text-align: center;
     letter-spacing: 0.5px;
-}
-
-.skills {
-    background: var(--bg-color);
-    position: relative;
-}
-
-.skills::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.08) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.skills > * {
-    position: relative;
-    z-index: 1;
 }
 
 .skills h2 {
@@ -618,63 +570,6 @@ span {
 }
 
 @media (max-width: 768px) {
-    /* Garantir que o background principal seja preservado em mobile */
-    body {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        background-attachment: scroll; /* Mudança importante para mobile */
-    }
-
-    /* Reforçar backgrounds das seções em mobile */
-    .home {
-        background: var(--bg-color);
-        min-height: 100vh;
-    }
-
-    .skills {
-        background: var(--bg-color);
-        min-height: auto;
-        padding: 5rem 3% 3rem;
-    }
-
-    .about {
-        background: var(--snd-bg-color);
-        min-height: auto;
-        padding: 5rem 3% 3rem;
-    }
-
-    /* Assegurar que o efeito de overlay funcione em mobile */
-    .home::before,
-    .skills::before {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .home::before {
-        background: 
-            radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.12) 0%, transparent 60%),
-            radial-gradient(circle at 70% 30%, rgba(255, 0, 128, 0.12) 0%, transparent 60%);
-    }
-
-    .skills::before {
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 60%),
-            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 60%);
-    }
-
-    /* Ajustes específicos para mobile */
-    section {
-        padding: 3rem 4% 2rem;
-        min-height: auto;
-    }
-
     #menu-icon {
         display: block;
     }
@@ -685,10 +580,9 @@ span {
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        border-top: .1rem solid rgba(0, 255, 255, 0.2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
         display: none;
     }
 
@@ -700,20 +594,22 @@ span {
         display: block;
         font-size: 2rem;
         margin: 3rem;
-        color: var(--text-color);
-        transition: all 0.3s ease;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-        color: var(--main-color);
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     }
 
     .home {
         flex-direction: column;
-        gap: 2rem;
-        padding-top: 6rem;
+        padding: 8rem 3% 2rem;
+    }
+
+    .home-content {
+        order: 1;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .home-img {
+        order: 2;
+        margin-top: 2rem;
     }
 
     .home-content h3 {
@@ -721,38 +617,115 @@ span {
     }
 
     .home-content h1 {
-        font-size: 5rem;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        font-size: 4.5rem;
     }
 
     .home-img img {
-        width: 90vw;
-        margin-top: 4rem;
+        width: 70vw;
+        max-width: 300px;
+        margin-top: 2rem;
     }
 
     .about {
         flex-direction: column;
-        gap: 2rem;
-        padding-top: 4rem;
+        padding: 8rem 3% 2rem;
+        text-align: center;
+    }
+
+    .about-img {
+        order: 1;
+        margin-bottom: 4rem;
+    }
+
+    .about-content {
+        order: 2;
     }
 
     .about-img img {
-        width: 90vw;
-        margin-top: 4rem;
+        width: 70vw;
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+
+    /* Cyber Avatar Mobile Adjustments */
+    .cyber-avatar {
+        width: 25rem;
+        height: 25rem;
+        margin: 0 auto;
+    }
+
+    .matrix-container {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .skills {
+        padding: 8rem 3% 2rem;
+        text-align: center;
     }
 
     .skills h2 {
         margin-bottom: 3rem;
-        font-size: 3rem;
+        font-size: 3.5rem;
+    }
+
+    .skills-container {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .skills-container .skills-box {
+        flex: 0 0 calc(50% - 1rem);
+        min-width: 140px;
+        padding: 2rem 1rem 3rem;
+    }
+
+    .skills-box i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .skills-box h3 {
+        font-size: 1.8rem;
+    }
+
+    .certificates {
+        padding: 8rem 3% 2rem;
+    }
+
+    .certificates h2 {
+        margin-bottom: 3rem;
+        font-size: 3.5rem;
+    }
+
+    .certificates-container {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .certificates-container .certificates-box {
+        flex: 0 0 calc(100% - 2rem);
+        padding: 2rem 1.5rem 3rem;
+    }
+
+    .projects {
+        padding: 8rem 3% 2rem;
     }
 
     .projects h2 {
         margin-bottom: 3rem;
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .projects-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+
+    .projects-container .projects-box {
+        flex: 0 0 100%;
+        padding: 2rem 1.5rem 3rem;
     }
 
     .futuristic-avatar,
@@ -773,14 +746,6 @@ span {
 }
 
 @media (max-width: 617px) {
-    /* Garantir ainda mais intensidade no background para telas muito pequenas */
-    body::before {
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.08) 0%, transparent 50%);
-    }
-
     .projects-container {
         grid-template-columns: 1fr;
     }
@@ -794,39 +759,11 @@ span {
         width: 100vw;
         margin-top: 4rem;
     }
-
-    .home-content h1 {
-        font-size: 4.5rem;
-    }
-
-    .home-content h3 {
-        font-size: 2.2rem;
-    }
 }
 
 @media (max-width: 450px) {
     html {
         font-size: 50%;
-    }
-
-    /* Maximizar efeitos visuais em telas muito pequenas */
-    body::before {
-        background: 
-            radial-gradient(circle at 25% 75%, rgba(0, 255, 255, 0.18) 0%, transparent 45%),
-            radial-gradient(circle at 75% 25%, rgba(255, 0, 128, 0.18) 0%, transparent 45%),
-            radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 40%);
-    }
-
-    .home::before {
-        background: 
-            radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 55%),
-            radial-gradient(circle at 70% 30%, rgba(255, 0, 128, 0.15) 0%, transparent 55%);
-    }
-
-    .skills::before {
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.12) 0%, transparent 55%),
-            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.12) 0%, transparent 55%);
     }
 
     .futuristic-avatar,
@@ -839,18 +776,6 @@ span {
     .avatar-hexagon {
         width: 14rem;
         height: 14rem;
-    }
-
-    .home-content h1 {
-        font-size: 4rem;
-    }
-
-    .home-content h3 {
-        font-size: 2rem;
-    }
-
-    section {
-        padding: 2rem 3%;
     }
 }
 
