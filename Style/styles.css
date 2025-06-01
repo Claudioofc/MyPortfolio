@@ -574,6 +574,14 @@ span {
         display: block;
     }
 
+    /* Force body background on mobile */
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
+        background-attachment: fixed !important;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -597,16 +605,32 @@ span {
         margin: 3rem;
     }
 
-    /* All sections with same gradient background */
+    /* All sections with transparent/matching background */
     .home,
     .about,
     .skills,
     .certificates,
     .projects {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
+        background: transparent !important;
         position: relative;
+    }
+
+    /* Fallback gradient for sections */
+    .home::before,
+    .about::before,
+    .skills::before,
+    .certificates::before,
+    .projects::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        z-index: -1;
     }
 
     .home {
@@ -640,6 +664,8 @@ span {
         width: 25rem;
         height: 25rem;
         margin: 2rem auto;
+        position: relative;
+        z-index: 1;
     }
 
     .matrix-container {
@@ -656,6 +682,8 @@ span {
         margin-bottom: 3rem;
         color: var(--text-color) !important;
         text-align: center;
+        position: relative;
+        z-index: 1;
     }
 
     .skills-container {
@@ -664,11 +692,13 @@ span {
         gap: 2rem;
         max-width: 50rem;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .skills-container .skills-box {
-        background: rgba(26, 26, 46, 0.7) !important;
-        backdrop-filter: blur(10px) !important;
+        background: rgba(26, 26, 46, 0.8) !important;
+        backdrop-filter: blur(15px) !important;
         border: .2rem solid rgba(0, 255, 255, 0.3) !important;
         padding: 2rem !important;
         border-radius: 1.5rem !important;
@@ -682,7 +712,7 @@ span {
     .skills-container .skills-box:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
-        background: rgba(26, 26, 46, 0.9) !important;
+        background: rgba(26, 26, 46, 0.95) !important;
     }
 
     .skills-box i {
@@ -708,11 +738,13 @@ span {
         gap: 2rem;
         max-width: 50rem;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .certificates-container .certificates-box {
-        background: rgba(26, 26, 46, 0.7) !important;
-        backdrop-filter: blur(10px) !important;
+        background: rgba(26, 26, 46, 0.8) !important;
+        backdrop-filter: blur(15px) !important;
         border: .2rem solid rgba(255, 0, 128, 0.3) !important;
         padding: 2rem !important;
         border-radius: 1.5rem !important;
@@ -727,7 +759,7 @@ span {
     .certificates-container .certificates-box:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4) !important;
-        background: rgba(26, 26, 46, 0.9) !important;
+        background: rgba(26, 26, 46, 0.95) !important;
     }
 
     /* Projects Section Mobile */
@@ -738,6 +770,8 @@ span {
     .projects h2 {
         margin-bottom: 3rem;
         color: var(--text-color) !important;
+        position: relative;
+        z-index: 1;
     }
 
     .projects-container {
@@ -746,11 +780,13 @@ span {
         gap: 2rem;
         max-width: 50rem;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .projects-container .projects-box {
-        background: rgba(26, 26, 46, 0.7) !important;
-        backdrop-filter: blur(10px) !important;
+        background: rgba(26, 26, 46, 0.8) !important;
+        backdrop-filter: blur(15px) !important;
         border: .2rem solid rgba(0, 255, 255, 0.3) !important;
         padding: 2rem !important;
         border-radius: 1.5rem !important;
@@ -765,14 +801,26 @@ span {
     .projects-container .projects-box:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
-        background: rgba(26, 26, 46, 0.9) !important;
+        background: rgba(26, 26, 46, 0.95) !important;
     }
 
     /* Footer with same gradient */
     .footer {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
+        background: transparent !important;
+        position: relative;
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        z-index: -1;
     }
 
     .futuristic-avatar,
