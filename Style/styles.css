@@ -25,12 +25,11 @@ html {
     overflow: auto;
 }
 
-/* Force futuristic design on all screen sizes */
 body {
-    background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-    background-size: 400% 400% !important;
-    animation: gradientShift 15s ease infinite !important;
-    color: var(--text-color) !important;
+    background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: var(--text-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -38,7 +37,6 @@ body {
     position: relative;
 }
 
-/* Ensure background overlay works on mobile */
 body::before {
     content: '';
     position: fixed;
@@ -52,23 +50,6 @@ body::before {
         radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
-}
-
-/* Additional mobile-specific forcing */
-@media (max-width: 991px) {
-    body {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
-        color: var(--text-color) !important;
-    }
-    
-    body::before {
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%) !important;
-    }
 }
 
 @keyframes gradientShift {
@@ -268,6 +249,16 @@ span {
     font-family: 'Nunito', sans-serif;
     text-align: center;
     letter-spacing: 0.5px;
+}
+
+/* SKILLS SECTION */
+.skills {
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 4rem 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .skills h2 {
@@ -573,10 +564,9 @@ span {
         padding: 10rem 3%;
     }
 
-
     .skills {
-        padding: 8rem;
-        text-align: center;
+        padding: 6rem 3%;
+        min-height: auto;
     }
 
     .projects {
@@ -599,10 +589,9 @@ span {
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: rgba(10, 10, 10, 0.95) !important;
-        backdrop-filter: blur(15px);
-        border-top: .1rem solid rgba(0, 255, 255, 0.3);
-        box-shadow: 0 .5rem 1rem rgba(0, 255, 255, 0.2);
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
         display: none;
     }
 
@@ -614,123 +603,6 @@ span {
         display: block;
         font-size: 2rem;
         margin: 3rem;
-        color: var(--text-color) !important;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-        color: var(--main-color) !important;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-
-    /* Force futuristic background on mobile */
-    body {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
-        color: var(--text-color) !important;
-    }
-
-    /* Ensure header background is dark */
-    .header {
-        background: rgba(10, 10, 10, 0.95) !important;
-        backdrop-filter: blur(15px) !important;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
-    }
-
-    /* Force text colors */
-    .home-content h1,
-    .home-content h3,
-    .home-content p {
-        color: var(--text-color) !important;
-    }
-
-    .home-content h1 {
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    /* Ensure skills section has dark background */
-    .skills {
-        background: transparent !important;
-        color: var(--text-color) !important;
-    }
-
-    .skills h2 {
-        color: var(--text-color) !important;
-        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .skills-container .skills-box {
-        background: rgba(26, 26, 46, 0.4) !important;
-        border: 2px solid rgba(0, 255, 255, 0.3) !important;
-        color: var(--text-color) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
-    }
-
-    .skills-box h3 {
-        color: var(--main-color) !important;
-    }
-
-    /* Certificates section */
-    .certificates {
-        background: transparent !important;
-        color: var(--text-color) !important;
-    }
-
-    .certificates h2 {
-        color: var(--text-color) !important;
-        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .certificates-container .certificates-box {
-        background: rgba(26, 26, 46, 0.4) !important;
-        border: 2px solid rgba(0, 255, 255, 0.3) !important;
-        color: var(--text-color) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
-    }
-
-    .certificates-box h3 {
-        color: var(--main-color) !important;
-    }
-
-    /* About section */
-    .about {
-        background: transparent !important;
-        color: var(--text-color) !important;
-    }
-
-    .about-content h2,
-    .about-content h3,
-    .about-content p {
-        color: var(--text-color) !important;
-    }
-
-    /* Projects section */
-    .projects {
-        background: transparent !important;
-        color: var(--text-color) !important;
-    }
-
-    .projects h2 {
-        color: var(--text-color) !important;
-        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .projects-container .projects-box {
-        background: rgba(26, 26, 46, 0.4) !important;
-        border: 2px solid rgba(0, 255, 255, 0.3) !important;
-        color: var(--text-color) !important;
-    }
-
-    .projects-box h3 {
-        color: var(--main-color) !important;
-    }
-
-    /* Footer */
-    .footer {
-        background: rgba(10, 10, 10, 0.9) !important;
-        color: var(--text-color) !important;
-        border-top: 1px solid rgba(0, 255, 255, 0.2) !important;
     }
 
     .home {
@@ -759,8 +631,25 @@ span {
         margin-top: 4rem;
     }
 
+    .skills {
+        padding: 4rem 2%;
+        min-height: auto;
+    }
+
     .skills h2 {
         margin-bottom: 3rem;
+        font-size: 2.8rem;
+    }
+
+    .skills-container {
+        gap: 1.5rem;
+    }
+
+    .skills-container .skills-box {
+        flex: 0 0 100%;
+        max-width: 35rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 3rem;
     }
 
     .projects h2 {
@@ -803,61 +692,24 @@ span {
         margin-top: 4rem;
     }
 
-    /* Force futuristic design on smaller screens */
-    body {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
-        color: var(--text-color) !important;
-    }
-
-    /* Skills section adjustments for small screens */
-    .skills-container {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-    }
-
     .skills-container .skills-box {
-        background: rgba(26, 26, 46, 0.4) !important;
-        border: 2px solid rgba(0, 255, 255, 0.3) !important;
-        color: var(--text-color) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
-        padding: 2rem !important;
-    }
-
-    .skills-box h3 {
-        color: var(--main-color) !important;
-        font-size: 2rem !important;
-    }
-
-    .skills-box i {
-        color: var(--main-color) !important;
-        font-size: 4rem !important;
-    }
-
-    /* Certificates section for small screens */
-    .certificates-container {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-    }
-
-    .certificates-container .certificates-box {
-        background: rgba(26, 26, 46, 0.4) !important;
-        border: 2px solid rgba(0, 255, 255, 0.3) !important;
-        color: var(--text-color) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
-        padding: 2rem !important;
-    }
-
-    .certificates-box h3 {
-        color: var(--main-color) !important;
-        font-size: 1.8rem !important;
+        flex: 0 0 100%;
+        max-width: 32rem;
     }
 }
 
 @media (max-width: 450px) {
     html {
         font-size: 50%;
+    }
+
+    .skills {
+        padding: 3rem 1.5%;
+    }
+
+    .skills-container .skills-box {
+        max-width: 28rem;
+        padding: 2rem 1rem 2.5rem;
     }
 
     .futuristic-avatar,
@@ -870,86 +722,6 @@ span {
     .avatar-hexagon {
         width: 14rem;
         height: 14rem;
-    }
-
-    /* Force futuristic design on very small screens */
-    body {
-        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
-        background-size: 400% 400% !important;
-        animation: gradientShift 15s ease infinite !important;
-        color: var(--text-color) !important;
-    }
-
-    /* Header adjustments for very small screens */
-    .header {
-        padding: 1.5rem 5% !important;
-        background: rgba(10, 10, 10, 0.95) !important;
-        backdrop-filter: blur(15px) !important;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .logo {
-        font-size: 2rem !important;
-        color: var(--main-color) !important;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5) !important;
-    }
-
-    /* Home section for very small screens */
-    .home-content h1 {
-        font-size: 4rem !important;
-        color: var(--text-color) !important;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .home-content h3 {
-        font-size: 2.2rem !important;
-        color: var(--text-color) !important;
-    }
-
-    .home-content p {
-        font-size: 1.4rem !important;
-        color: var(--text-color) !important;
-    }
-
-    /* Skills and certificates full width on very small screens */
-    .skills-container,
-    .certificates-container {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0 1rem !important;
-    }
-
-    .skills-container .skills-box,
-    .certificates-container .certificates-box {
-        background: rgba(26, 26, 46, 0.5) !important;
-        border: 2px solid rgba(0, 255, 255, 0.4) !important;
-        color: var(--text-color) !important;
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15) !important;
-        padding: 1.5rem !important;
-        margin: 0 !important;
-    }
-
-    .skills-box h3,
-    .certificates-box h3 {
-        color: var(--main-color) !important;
-        font-size: 1.6rem !important;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.3) !important;
-    }
-
-    .skills-box i {
-        color: var(--main-color) !important;
-        font-size: 3.5rem !important;
-        text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
-    }
-
-    /* Section headings for very small screens */
-    .skills h2,
-    .certificates h2,
-    .projects h2,
-    .about-content h2 {
-        color: var(--text-color) !important;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.4) !important;
-        font-size: 3rem !important;
     }
 }
 
