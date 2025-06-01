@@ -25,15 +25,12 @@ html {
     overflow: auto;
 }
 
+/* Force futuristic design on all screen sizes */
 body {
-    background: var(--bg-color);
-    background: linear-gradient(135deg, 
-        #0a0a0a 0%, 
-        #1a1a2e 25%, 
-        #0d1b2a 50%, 
-        #16213e 75%, 
-        #0a0a0a 100%);
-    color: var(--text-color);
+    background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite !important;
+    color: var(--text-color) !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -41,6 +38,7 @@ body {
     position: relative;
 }
 
+/* Ensure background overlay works on mobile */
 body::before {
     content: '';
     position: fixed;
@@ -49,10 +47,28 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #0d1b2a 50%, #16213e 75%, #0a0a0a 100%);
-    z-index: -2;
-    animation: gradientShift 8s ease infinite;
-    background-size: 400% 400%;
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Additional mobile-specific forcing */
+@media (max-width: 991px) {
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
+        color: var(--text-color) !important;
+    }
+    
+    body::before {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%) !important;
+    }
 }
 
 @keyframes gradientShift {
@@ -583,9 +599,10 @@ span {
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        background: rgba(10, 10, 10, 0.95) !important;
+        backdrop-filter: blur(15px);
+        border-top: .1rem solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 .5rem 1rem rgba(0, 255, 255, 0.2);
         display: none;
     }
 
@@ -597,16 +614,127 @@ span {
         display: block;
         font-size: 2rem;
         margin: 3rem;
+        color: var(--text-color) !important;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+        color: var(--main-color) !important;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    /* Force futuristic background on mobile */
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Ensure header background is dark */
+    .header {
+        background: rgba(10, 10, 10, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
+    }
+
+    /* Force text colors */
+    .home-content h1,
+    .home-content h3,
+    .home-content p {
+        color: var(--text-color) !important;
+    }
+
+    .home-content h1 {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    /* Ensure skills section has dark background */
+    .skills {
+        background: transparent !important;
+        color: var(--text-color) !important;
+    }
+
+    .skills h2 {
+        color: var(--text-color) !important;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .skills-container .skills-box {
+        background: rgba(26, 26, 46, 0.4) !important;
+        border: 2px solid rgba(0, 255, 255, 0.3) !important;
+        color: var(--text-color) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+    }
+
+    .skills-box h3 {
+        color: var(--main-color) !important;
+    }
+
+    /* Certificates section */
+    .certificates {
+        background: transparent !important;
+        color: var(--text-color) !important;
+    }
+
+    .certificates h2 {
+        color: var(--text-color) !important;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .certificates-container .certificates-box {
+        background: rgba(26, 26, 46, 0.4) !important;
+        border: 2px solid rgba(0, 255, 255, 0.3) !important;
+        color: var(--text-color) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+    }
+
+    .certificates-box h3 {
+        color: var(--main-color) !important;
+    }
+
+    /* About section */
+    .about {
+        background: transparent !important;
+        color: var(--text-color) !important;
+    }
+
+    .about-content h2,
+    .about-content h3,
+    .about-content p {
+        color: var(--text-color) !important;
+    }
+
+    /* Projects section */
+    .projects {
+        background: transparent !important;
+        color: var(--text-color) !important;
+    }
+
+    .projects h2 {
+        color: var(--text-color) !important;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .projects-container .projects-box {
+        background: rgba(26, 26, 46, 0.4) !important;
+        border: 2px solid rgba(0, 255, 255, 0.3) !important;
+        color: var(--text-color) !important;
+    }
+
+    .projects-box h3 {
+        color: var(--main-color) !important;
+    }
+
+    /* Footer */
+    .footer {
+        background: rgba(10, 10, 10, 0.9) !important;
+        color: var(--text-color) !important;
+        border-top: 1px solid rgba(0, 255, 255, 0.2) !important;
     }
 
     .home {
         flex-direction: column;
-        padding: 8rem 3% 2rem;
-    }
-
-    .home-content {
-        text-align: center;
-        margin-bottom: 4rem;
     }
 
     .home-content h3 {
@@ -614,126 +742,33 @@ span {
     }
 
     .home-content h1 {
-        font-size: 4.5rem;
-        margin: 2rem 0;
-    }
-
-    .home-img {
-        order: 1;
-        margin-bottom: 3rem;
+        font-size: 5rem;
     }
 
     .home-img img {
-        width: 70vw;
-        max-width: 300px;
-        height: auto;
-        border-radius: 50%;
-        border: 3px solid var(--main-color);
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        width: 90vw;
+        margin-top: 4rem;
     }
 
     .about {
         flex-direction: column;
-        padding: 6rem 3% 2rem;
-        text-align: center;
     }
 
-    .about-img {
-        order: 1;
-        margin-bottom: 3rem;
-    }
-
-    .cyber-avatar {
-        width: 25rem;
-        height: 25rem;
-        margin: 0 auto;
-    }
-
-    .matrix-container {
-        width: 20rem;
-        height: 20rem;
-    }
-
-    .skills {
-        padding: 6rem 3% 2rem;
-        background: var(--snd-bg-color);
+    .about-img img {
+        width: 90vw;
+        margin-top: 4rem;
     }
 
     .skills h2 {
-        margin-bottom: 4rem;
-        font-size: 3rem;
-        color: var(--main-color);
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin: 0 auto;
-        max-width: 600px;
-    }
-
-    .skills-box {
-        padding: 2rem 1rem 3rem;
-        background: linear-gradient(135deg, 
-            rgba(0, 255, 255, 0.1) 0%, 
-            rgba(26, 26, 46, 0.9) 50%, 
-            rgba(22, 33, 62, 0.9) 100%);
-        border: 2px solid rgba(0, 255, 255, 0.3);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-    }
-
-    .skills-box:hover {
-        transform: scale(1.02);
-        border-color: var(--main-color);
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-    }
-
-    .skills-box i {
-        font-size: 2.5rem;
-        color: var(--main-color);
-        margin-bottom: 1rem;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-    }
-
-    .skills-box h3 {
-        font-size: 2rem;
-        color: var(--text-color);
-        margin-bottom: 1rem;
-    }
-
-    .certificates {
-        padding: 6rem 3% 2rem;
-    }
-
-    .certificates h2 {
-        margin-bottom: 4rem;
-        font-size: 3rem;
-        color: var(--main-color);
-    }
-
-    .certificates-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .projects {
-        padding: 6rem 3% 2rem;
+        margin-bottom: 3rem;
     }
 
     .projects h2 {
-        margin-bottom: 4rem;
-        font-size: 3rem;
-        color: var(--main-color);
+        margin-bottom: 3rem;
     }
 
     .projects-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 400px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .futuristic-avatar,
@@ -751,164 +786,78 @@ span {
     .avatar-eyes {
         gap: 2rem;
     }
-
-    body::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    .home-img img {
-        animation: floatImage 4s ease-in-out infinite;
-    }
-
-    .section {
-        background: rgba(16, 21, 62, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 255, 255, 0.1);
-    }
-
-    /* Garantir que o avatar cyber aparece corretamente */
-    .cyber-avatar .neural-network {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .cyber-avatar .central-node {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .cyber-avatar .core-brain {
-        opacity: 1;
-        visibility: visible;
-        animation: brainPulse 2s ease-in-out infinite;
-    }
-
-    /* Mobile typography fixes */
-    .home-content h1 {
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        background: linear-gradient(45deg, var(--main-color), var(--accent-color));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .home-content h3 {
-        color: var(--main-color);
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-    }
-
-    /* Skills visibility fix */
-    .skills {
-        opacity: 1;
-        visibility: visible;
-        display: block;
-    }
-
-    .skills-container {
-        opacity: 1;
-        visibility: visible;
-        display: grid;
-    }
-
-    .skills-box {
-        opacity: 1;
-        visibility: visible;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 @media (max-width: 617px) {
-    .skills-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
     .projects-container {
         grid-template-columns: 1fr;
     }
 
     .home-img img {
-        width: 80vw;
-        max-width: 250px;
+        width: 89vw;
+        margin-top: 8rem;
     }
 
-    .cyber-avatar {
-        width: 22rem;
-        height: 22rem;
+    .about-img img {
+        width: 100vw;
+        margin-top: 4rem;
     }
 
-    .matrix-container {
-        width: 18rem;
-        height: 18rem;
+    /* Force futuristic design on smaller screens */
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Skills section adjustments for small screens */
+    .skills-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .skills-container .skills-box {
+        background: rgba(26, 26, 46, 0.4) !important;
+        border: 2px solid rgba(0, 255, 255, 0.3) !important;
+        color: var(--text-color) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+        padding: 2rem !important;
+    }
+
+    .skills-box h3 {
+        color: var(--main-color) !important;
+        font-size: 2rem !important;
+    }
+
+    .skills-box i {
+        color: var(--main-color) !important;
+        font-size: 4rem !important;
+    }
+
+    /* Certificates section for small screens */
+    .certificates-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .certificates-container .certificates-box {
+        background: rgba(26, 26, 46, 0.4) !important;
+        border: 2px solid rgba(0, 255, 255, 0.3) !important;
+        color: var(--text-color) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1) !important;
+        padding: 2rem !important;
+    }
+
+    .certificates-box h3 {
+        color: var(--main-color) !important;
+        font-size: 1.8rem !important;
     }
 }
 
 @media (max-width: 450px) {
     html {
         font-size: 50%;
-    }
-
-    .home-content h1 {
-        font-size: 4rem;
-    }
-
-    .home-content h3 {
-        font-size: 2.2rem;
-    }
-
-    .home-img img {
-        width: 75vw;
-        max-width: 200px;
-    }
-
-    .cyber-avatar {
-        width: 20rem;
-        height: 20rem;
-    }
-
-    .matrix-container {
-        width: 16rem;
-        height: 16rem;
-    }
-
-    .core-brain {
-        width: 4rem;
-        height: 4rem;
-    }
-
-    .pulse-ring {
-        width: 8rem;
-        height: 8rem;
-    }
-
-    .skills h2,
-    .certificates h2,
-    .projects h2 {
-        font-size: 2.5rem;
-    }
-
-    .skills-box {
-        padding: 1.5rem 1rem 2.5rem;
-    }
-
-    .skills-box i {
-        font-size: 2rem;
-    }
-
-    .skills-box h3 {
-        font-size: 1.8rem;
     }
 
     .futuristic-avatar,
@@ -921,6 +870,86 @@ span {
     .avatar-hexagon {
         width: 14rem;
         height: 14rem;
+    }
+
+    /* Force futuristic design on very small screens */
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Header adjustments for very small screens */
+    .header {
+        padding: 1.5rem 5% !important;
+        background: rgba(10, 10, 10, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .logo {
+        font-size: 2rem !important;
+        color: var(--main-color) !important;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5) !important;
+    }
+
+    /* Home section for very small screens */
+    .home-content h1 {
+        font-size: 4rem !important;
+        color: var(--text-color) !important;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .home-content h3 {
+        font-size: 2.2rem !important;
+        color: var(--text-color) !important;
+    }
+
+    .home-content p {
+        font-size: 1.4rem !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Skills and certificates full width on very small screens */
+    .skills-container,
+    .certificates-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 1rem !important;
+    }
+
+    .skills-container .skills-box,
+    .certificates-container .certificates-box {
+        background: rgba(26, 26, 46, 0.5) !important;
+        border: 2px solid rgba(0, 255, 255, 0.4) !important;
+        color: var(--text-color) !important;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15) !important;
+        padding: 1.5rem !important;
+        margin: 0 !important;
+    }
+
+    .skills-box h3,
+    .certificates-box h3 {
+        color: var(--main-color) !important;
+        font-size: 1.6rem !important;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .skills-box i {
+        color: var(--main-color) !important;
+        font-size: 3.5rem !important;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+    }
+
+    /* Section headings for very small screens */
+    .skills h2,
+    .certificates h2,
+    .projects h2,
+    .about-content h2 {
+        color: var(--text-color) !important;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.4) !important;
+        font-size: 3rem !important;
     }
 }
 
@@ -1580,47 +1609,5 @@ span {
     50% { 
         opacity: 0.7;
         transform: scale(1.05);
-    }
-}
-
-/* Force cyber theme visibility on all screen sizes */
-@media screen and (max-width: 1024px) {
-    :root {
-        --bg-color: #0a0a0a;
-        --snd-bg-color: #1a1a2e;
-        --text-color: #ffffff;
-        --main-color: #00ffff;
-        --accent-color: #ff0080;
-    }
-
-    body {
-        background: linear-gradient(135deg, 
-            #0a0a0a 0%, 
-            #1a1a2e 25%, 
-            #0d1b2a 50%, 
-            #16213e 75%, 
-            #0a0a0a 100%) !important;
-        animation: gradientShift 8s ease infinite;
-        background-size: 400% 400%;
-    }
-
-    .home {
-        background: rgba(16, 21, 62, 0.1);
-    }
-
-    .about {
-        background: rgba(26, 26, 46, 0.1);
-    }
-
-    .skills {
-        background: rgba(13, 27, 42, 0.1) !important;
-    }
-
-    .certificates {
-        background: rgba(22, 33, 62, 0.1);
-    }
-
-    .projects {
-        background: rgba(16, 21, 62, 0.1);
     }
 }
