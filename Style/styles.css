@@ -258,11 +258,13 @@ span {
 }
 
 .skills-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 50rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .skills-container .skills-box {
@@ -688,7 +690,7 @@ span {
 
     .skills-container {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         max-width: 50rem;
         margin: 0 auto;
