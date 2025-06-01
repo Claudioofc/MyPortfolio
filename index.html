@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--FONT-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="Style/styles.css">
+    </link>
+    <title>Meu Portfolio - Cláudio Souza</title>
+</head>
+
+<body>
+    <!-- ANGULAR VIEW -->
+    <div ng-view></div>
+
+    <!---SCROLL REVEAL JS-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--TYPED JS-->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!--ANGULAR JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+
+    <!--ANGULAR APP FILES-->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/services/navigationService.js"></script>
+    <script src="app/directives/typingEffect.js"></script>
+</body>
+
+</html>
