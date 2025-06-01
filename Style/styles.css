@@ -580,9 +580,10 @@ span {
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: .1rem solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 .5rem 1rem rgba(0, 255, 255, 0.2);
         display: none;
     }
 
@@ -594,61 +595,263 @@ span {
         display: block;
         font-size: 2rem;
         margin: 3rem;
-
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
     }
 
     .home {
         flex-direction: column;
+        padding: 8rem 3% 2rem;
     }
 
     .home-content h3 {
         font-size: 2.6rem;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
     }
 
     .home-content h1 {
-        font-size: 5rem;
+        font-size: 4.5rem;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
     }
 
     .home-img img {
-        width: 90vw;
+        width: 70vw;
         margin-top: 4rem;
+        border-radius: 50%;
+        animation: floatImage 4s ease-in-out infinite;
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
     }
 
     .about {
         flex-direction: column;
+        padding: 8rem 3% 2rem;
     }
 
-    .about-img img {
-        width: 90vw;
-        margin-top: 4rem;
+    .about-img {
+        margin-bottom: 4rem;
+    }
+
+    .skills {
+        padding: 8rem 3% 2rem;
+        text-align: center;
     }
 
     .skills h2 {
         margin-bottom: 3rem;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .skills-container {
+        gap: 2rem;
+    }
+
+    .skills-container .skills-box {
+        flex: 0 0 calc(50% - 1rem);
+        padding: 2rem 1.5rem 3rem;
+        background: rgba(26, 26, 46, 0.9);
+        backdrop-filter: blur(10px);
+        border: .2rem solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .skills-container .skills-box:hover {
+        border-color: var(--main-color);
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    }
+
+    .certificates {
+        padding: 8rem 3% 2rem;
+    }
+
+    .certificates h2 {
+        margin-bottom: 3rem;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .certificates-container {
+        gap: 2rem;
+    }
+
+    .certificates-container .certificates-box {
+        flex: 0 0 calc(50% - 1rem);
+        padding: 2rem 1.5rem 3rem;
+        background: rgba(26, 26, 46, 0.9);
+        backdrop-filter: blur(10px);
+        border: .2rem solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .certificates-container .certificates-box:hover {
+        border-color: var(--main-color);
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    }
+
+    .projects {
+        padding: 8rem 3% 2rem;
     }
 
     .projects h2 {
         margin-bottom: 3rem;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
     }
 
     .projects-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
-    .futuristic-avatar,
-    .futuristic-avatar-about {
-        width: 20rem;
-        height: 20rem;
+    .projects-container .projects-box {
+        background: rgba(26, 26, 46, 0.9);
+        backdrop-filter: blur(10px);
+        border: .2rem solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
     }
-    
-    .avatar-circle,
-    .avatar-hexagon {
+
+    .projects-container .projects-box:hover {
+        border-color: var(--main-color);
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Cyber Avatar Mobile Adjustments */
+    .cyber-avatar {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .matrix-container {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .central-node {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .core-brain {
+        width: 5rem;
+        height: 5rem;
+        box-shadow: 
+            0 0 15px rgba(0, 255, 255, 0.6),
+            inset 0 0 15px rgba(255, 0, 128, 0.3);
+    }
+
+    .core-brain::before {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .pulse-ring {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .ring-1 {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .ring-2 {
         width: 16rem;
         height: 16rem;
     }
+
+    .ring-3 {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    /* Maintain all animations on mobile */
+    .particle {
+        width: 3px;
+        height: 3px;
+        box-shadow: 0 0 8px var(--main-color);
+    }
+
+    /* Button effects on mobile */
+    .btn {
+        padding: 1.2rem 2.5rem;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        font-size: 1.8rem;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.6), 0 0 35px rgba(255, 0, 128, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Social media effects on mobile */
+    .social-media a {
+        width: 4.5rem;
+        height: 4.5rem;
+        border: .2rem solid var(--main-color);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .social-media a:hover {
+        background: var(--main-color);
+        color: var(--snd-bg-color);
+        box-shadow: 0 0 20px var(--main-color);
+    }
+
+    /* Touch active states for mobile */
+    .skills-box.touch-active,
+    .certificates-box.touch-active,
+    .projects-box.touch-active {
+        transform: scale(1.05) translateY(-5px);
+        border-color: var(--main-color);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        background: rgba(26, 26, 46, 1);
+    }
     
-    .avatar-eyes {
-        gap: 2rem;
+    .btn.touch-active {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(255, 0, 128, 0.4);
+    }
+    
+    .social-media a.touch-active {
+        background: var(--main-color);
+        color: var(--snd-bg-color);
+        box-shadow: 0 0 25px var(--main-color);
+        transform: scale(1.1);
+    }
+    
+    /* Optimize animations for touch devices */
+    .skills-box,
+    .certificates-box,
+    .projects-box {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Enhanced gradient background for mobile */
+    body::before {
+        opacity: 1;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.12) 0%, transparent 60%),
+            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.12) 0%, transparent 60%),
+            radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.08) 0%, transparent 50%);
+    }
+    
+    /* Mobile navbar improvements */
+    .navbar.active {
+        backdrop-filter: blur(15px);
+        background: rgba(10, 10, 10, 0.98);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    
+    .navbar a:active {
+        color: var(--main-color);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+    
+    /* Mobile header with enhanced glow */
+    .header.sticky {
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
     }
 }
 
@@ -658,14 +861,51 @@ span {
     }
 
     .home-img img {
-        width: 89vw;
-        margin-top: 8rem;
+        width: 75vw;
+        margin-top: 6rem;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
     }
 
-    .about-img img {
-        width: 100vw;
-        margin-top: 4rem;
+    .skills-container .skills-box,
+    .certificates-container .certificates-box {
+        flex: 0 0 100%;
+        margin-bottom: 2rem;
     }
+
+    /* Cyber Avatar Smaller Screens */
+    .cyber-avatar {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .matrix-container {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .central-node {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .core-brain {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .core-brain::before {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .pulse-ring {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .ring-1 { width: 10rem; height: 10rem; }
+    .ring-2 { width: 14rem; height: 14rem; }
+    .ring-3 { width: 18rem; height: 18rem; }
 }
 
 @media (max-width: 450px) {
@@ -673,16 +913,133 @@ span {
         font-size: 50%;
     }
 
-    .futuristic-avatar,
-    .futuristic-avatar-about {
+    /* Maintain gradient animation on small screens */
+    body {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+    }
+
+    /* Keep body effects */
+    body::before {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.04) 0%, transparent 50%);
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .home-content h3 {
+        font-size: 2.2rem;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .home-img img {
+        width: 80vw;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Cyber Avatar Small Screens */
+    .cyber-avatar {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .matrix-container {
         width: 18rem;
         height: 18rem;
     }
+
+    .central-node {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .core-brain {
+        width: 3.5rem;
+        height: 3.5rem;
+        box-shadow: 
+            0 0 10px rgba(0, 255, 255, 0.6),
+            inset 0 0 10px rgba(255, 0, 128, 0.3);
+    }
+
+    .core-brain::before {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .pulse-ring {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .ring-1 { width: 9rem; height: 9rem; }
+    .ring-2 { width: 12rem; height: 12rem; }
+    .ring-3 { width: 15rem; height: 15rem; }
+
+    /* Keep all animations active */
+    .particle {
+        width: 2px;
+        height: 2px;
+        box-shadow: 0 0 6px var(--main-color);
+    }
+
+    /* Smaller but visible effects */
+    .btn {
+        padding: 1rem 2rem;
+        box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    }
+
+    .social-media a {
+        width: 4rem;
+        height: 4rem;
+        box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    /* Keep text shadows and glows */
+    .heading {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .logo {
+        text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
+    span {
+        color: var(--main-color);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Reduce particle count for better performance */
+    .digital-particles .particle:nth-child(n+6) {
+        display: none;
+    }
     
-    .avatar-circle,
-    .avatar-hexagon {
-        width: 14rem;
-        height: 14rem;
+    /* Simplify ring animations on very small screens */
+    .orbital-rings .ring {
+        animation-duration: 6s;
+    }
+    
+    /* Optimize cyber avatar performance */
+    .cyber-avatar .line {
+        opacity: 0.6;
+    }
+    
+    .cyber-avatar .particle {
+        animation-duration: 4s;
+    }
+    
+    /* Reduced complexity for very small screens */
+    .core-brain {
+        animation-duration: 3s;
+    }
+    
+    .pulse-ring {
+        animation-duration: 2.5s;
     }
 }
 
@@ -1342,5 +1699,73 @@ span {
     50% { 
         opacity: 0.7;
         transform: scale(1.05);
+    }
+}
+
+/* ========================= HIGH CONTRAST MODE FOR ACCESSIBILITY ========================= */
+@media (prefers-contrast: high) {
+    :root {
+        --main-color: #00ffff;
+        --accent-color: #ff0080;
+        --text-color: #ffffff;
+        --bg-color: #000000;
+    }
+    
+    .skills-box,
+    .certificates-box,
+    .projects-box {
+        border-color: var(--main-color);
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* ========================= REDUCE MOTION FOR ACCESSIBILITY ========================= */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .cyber-avatar,
+    .orbital-rings,
+    .digital-particles {
+        animation: none;
+    }
+    
+    body::before {
+        animation: none;
+    }
+}
+
+/* ========================= TOUCH DEVICE OPTIMIZATIONS ========================= */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch-only devices */
+    .skills-box:hover,
+    .certificates-box:hover,
+    .projects-box:hover {
+        transform: none;
+        border-color: rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* Use touch-active class instead */
+    .skills-box.touch-active,
+    .certificates-box.touch-active,
+    .projects-box.touch-active {
+        transform: scale(1.02);
+        border-color: var(--main-color);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    }
+    
+    /* Improve button touch targets */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .social-media a {
+        min-height: 44px;
+        min-width: 44px;
     }
 }
