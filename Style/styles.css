@@ -580,8 +580,9 @@ span {
         left: 0;
         width: 100%;
         padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
+        background: rgba(10, 10, 10, 0.9);
+        backdrop-filter: blur(10px);
+        border-top: .1rem solid rgba(0, 255, 255, 0.2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
         display: none;
     }
@@ -596,11 +597,20 @@ span {
         margin: 3rem;
     }
 
-    .home {
-        flex-direction: column;
+    /* All sections with same gradient background */
+    .home,
+    .about,
+    .skills,
+    .certificates,
+    .projects {
         background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
         background-size: 400% 400% !important;
         animation: gradientShift 15s ease infinite !important;
+        position: relative;
+    }
+
+    .home {
+        flex-direction: column;
     }
 
     .home-content h3 {
@@ -618,7 +628,6 @@ span {
 
     .about {
         flex-direction: column;
-        background: var(--snd-bg-color) !important;
     }
 
     .about-img img {
@@ -640,7 +649,6 @@ span {
 
     /* Skills Section Mobile */
     .skills {
-        background: var(--bg-color) !important;
         padding: 4rem 2rem;
     }
 
@@ -659,7 +667,8 @@ span {
     }
 
     .skills-container .skills-box {
-        background: var(--snd-bg-color) !important;
+        background: rgba(26, 26, 46, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
         border: .2rem solid rgba(0, 255, 255, 0.3) !important;
         padding: 2rem !important;
         border-radius: 1.5rem !important;
@@ -673,6 +682,7 @@ span {
     .skills-container .skills-box:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
+        background: rgba(26, 26, 46, 0.9) !important;
     }
 
     .skills-box i {
@@ -689,7 +699,6 @@ span {
 
     /* Certificates Section Mobile */
     .certificates {
-        background: var(--snd-bg-color) !important;
         padding: 4rem 2rem;
     }
 
@@ -701,9 +710,28 @@ span {
         margin: 0 auto;
     }
 
+    .certificates-container .certificates-box {
+        background: rgba(26, 26, 46, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
+        border: .2rem solid rgba(255, 0, 128, 0.3) !important;
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        transition: all 0.3s ease !important;
+        cursor: pointer !important;
+    }
+
+    .certificates-container .certificates-box:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4) !important;
+        background: rgba(26, 26, 46, 0.9) !important;
+    }
+
     /* Projects Section Mobile */
     .projects {
-        background: var(--bg-color) !important;
         padding: 4rem 2rem;
     }
 
@@ -721,7 +749,8 @@ span {
     }
 
     .projects-container .projects-box {
-        background: var(--snd-bg-color) !important;
+        background: rgba(26, 26, 46, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
         border: .2rem solid rgba(0, 255, 255, 0.3) !important;
         padding: 2rem !important;
         border-radius: 1.5rem !important;
@@ -736,6 +765,14 @@ span {
     .projects-container .projects-box:hover {
         transform: translateY(-5px) !important;
         box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
+        background: rgba(26, 26, 46, 0.9) !important;
+    }
+
+    /* Footer with same gradient */
+    .footer {
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
     }
 
     .futuristic-avatar,
@@ -798,41 +835,14 @@ span {
 
     /* Ensure all text is visible */
     .skills-box h3,
-    .skills-box p {
+    .skills-box p,
+    .certificates-box h3,
+    .certificates-box p,
+    .projects-box h3,
+    .projects-box p {
         color: var(--text-color) !important;
         opacity: 1 !important;
         visibility: visible !important;
-    }
-
-    /* Certificates content visibility */
-    .certificates-container .certificates-box {
-        background: var(--bg-color) !important;
-        border: .2rem solid rgba(255, 0, 128, 0.3) !important;
-        padding: 2rem !important;
-        border-radius: 1.5rem !important;
-        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0) !important;
-        transition: all 0.3s ease !important;
-        cursor: pointer !important;
-    }
-
-    .certificates-container .certificates-box:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4) !important;
-    }
-
-    .certificates-container .certificates-box h3,
-    .certificates-container .certificates-box p {
-        color: var(--text-color) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-
-    /* Footer mobile styling */
-    .footer {
-        background: var(--snd-bg-color) !important;
     }
 
     /* Headers mobile styling */
