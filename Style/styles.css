@@ -259,8 +259,8 @@ span {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
     max-width: 50rem;
     margin: 0 auto;
     position: relative;
@@ -268,16 +268,17 @@ span {
 }
 
 .skills-container .skills-box {
-    flex: 0 0 30rem;
-    background: var(--snd-bg-color);
-    padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
+    background: rgba(26, 26, 46, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    border: .2rem solid rgba(0, 255, 255, 0.3) !important;
+    padding: 1.5rem !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease !important;
     text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: .5s ease;
-    opacity: 0;
-    transform: translateY(50px) scale(0.8);
-    animation-fill-mode: forwards;
 }
 
 .skills-container .skills-box.animate {
@@ -308,10 +309,13 @@ span {
 .skills-box i {
     font-size: 3rem;
     color: var(--main-color);
+    margin-bottom: 0.8rem;
 }
 
 .skills-box h3 {
-    font-size: 2.6rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
 }
 
 .skills-box p {
@@ -690,8 +694,8 @@ span {
 
     .skills-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
         max-width: 50rem;
         margin: 0 auto;
         position: relative;
@@ -702,7 +706,7 @@ span {
         background: rgba(26, 26, 46, 0.8) !important;
         backdrop-filter: blur(15px) !important;
         border: .2rem solid rgba(0, 255, 255, 0.3) !important;
-        padding: 2rem !important;
+        padding: 1.5rem !important;
         border-radius: 1.5rem !important;
         box-shadow: 0 0 20px rgba(0, 255, 255, 0.2) !important;
         opacity: 1 !important;
@@ -718,9 +722,8 @@ span {
     }
 
     .skills-box i {
-        font-size: 4rem;
-        color: var(--main-color);
-        margin-bottom: 1rem;
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
     }
 
     .skills-box h3 {
@@ -962,12 +965,7 @@ span {
         height: 18rem;
     }
 
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        max-width: 40rem;
-        padding: 0 1rem;
-    }
-
+    .skills-container,
     .certificates-container,
     .projects-container {
         max-width: 40rem;
@@ -1003,12 +1001,7 @@ span {
         height: 16rem;
     }
 
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        max-width: 35rem;
-        gap: 1.5rem;
-    }
-
+    .skills-container,
     .certificates-container,
     .projects-container {
         max-width: 35rem;
