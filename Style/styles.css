@@ -251,16 +251,6 @@ span {
     letter-spacing: 0.5px;
 }
 
-/* SKILLS SECTION */
-.skills {
-    background: var(--bg-color);
-    min-height: 100vh;
-    padding: 4rem 3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .skills h2 {
     font-size: 3.2rem;
     font-weight: 700;
@@ -564,9 +554,10 @@ span {
         padding: 10rem 3%;
     }
 
+
     .skills {
-        padding: 6rem 3%;
-        min-height: auto;
+        padding: 8rem;
+        text-align: center;
     }
 
     .projects {
@@ -607,6 +598,9 @@ span {
 
     .home {
         flex-direction: column;
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e) !important;
+        background-size: 400% 400% !important;
+        animation: gradientShift 15s ease infinite !important;
     }
 
     .home-content h3 {
@@ -618,12 +612,13 @@ span {
     }
 
     .home-img img {
-        width: 90vw;
+        width: 70vw;
         margin-top: 4rem;
     }
 
     .about {
         flex-direction: column;
+        background: var(--snd-bg-color) !important;
     }
 
     .about-img img {
@@ -631,33 +626,116 @@ span {
         margin-top: 4rem;
     }
 
+    /* Cyber Avatar Mobile Adjustments */
+    .cyber-avatar {
+        width: 25rem;
+        height: 25rem;
+        margin: 2rem auto;
+    }
+
+    .matrix-container {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    /* Skills Section Mobile */
     .skills {
-        padding: 4rem 2%;
-        min-height: auto;
+        background: var(--bg-color) !important;
+        padding: 4rem 2rem;
     }
 
     .skills h2 {
         margin-bottom: 3rem;
-        font-size: 2.8rem;
+        color: var(--text-color) !important;
+        text-align: center;
     }
 
     .skills-container {
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 50rem;
+        margin: 0 auto;
     }
 
     .skills-container .skills-box {
-        flex: 0 0 100%;
-        max-width: 35rem;
+        background: var(--snd-bg-color) !important;
+        border: .2rem solid rgba(0, 255, 255, 0.3) !important;
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .skills-container .skills-box:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
+    }
+
+    .skills-box i {
+        font-size: 4rem;
+        color: var(--main-color);
+        margin-bottom: 1rem;
+    }
+
+    .skills-box h3 {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+
+    /* Certificates Section Mobile */
+    .certificates {
+        background: var(--snd-bg-color) !important;
+        padding: 4rem 2rem;
+    }
+
+    .certificates-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 50rem;
         margin: 0 auto;
-        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* Projects Section Mobile */
+    .projects {
+        background: var(--bg-color) !important;
+        padding: 4rem 2rem;
     }
 
     .projects h2 {
         margin-bottom: 3rem;
+        color: var(--text-color) !important;
     }
 
     .projects-container {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+    .projects-container .projects-box {
+        background: var(--snd-bg-color) !important;
+        border: .2rem solid rgba(0, 255, 255, 0.3) !important;
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        transition: all 0.3s ease !important;
+        cursor: pointer !important;
+    }
+
+    .projects-container .projects-box:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4) !important;
     }
 
     .futuristic-avatar,
@@ -675,6 +753,127 @@ span {
     .avatar-eyes {
         gap: 2rem;
     }
+
+    /* Mobile icon color fixes */
+    .skills-box i.fa-brands.fa-js-square,
+    .skills-box i.fa-brands.fa-js,
+    .skills-box i.fa-brands.fa-square-js {
+        color: #f7df1e !important;
+    }
+
+    .skills-box i.fa-brands.fa-node-js,
+    .skills-box i.fa-brands.fa-node {
+        color: #68a063 !important;
+    }
+
+    .skills-box i.fa-brands.fa-angular {
+        color: #dd0031 !important;
+    }
+
+    .skills-box i.fa-brands.fa-bootstrap {
+        color: #7952b3 !important;
+    }
+
+    .skills-box i.fa-brands.fa-html5 {
+        color: #e34f26 !important;
+    }
+
+    .skills-box i.fa-brands.fa-css3-alt,
+    .skills-box i.fa-brands.fa-css3 {
+        color: #1572b6 !important;
+    }
+
+    .skills-box i.fa-solid.fa-code {
+        color: var(--main-color) !important;
+    }
+
+    .skills-box i.fa-solid.fa-database {
+        color: #336791 !important;
+    }
+
+    .skills-box i.fa-solid.fa-server,
+    .skills-box i.fa-solid.fa-cogs {
+        color: var(--accent-color) !important;
+    }
+
+    /* Ensure all text is visible */
+    .skills-box h3,
+    .skills-box p {
+        color: var(--text-color) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Certificates content visibility */
+    .certificates-container .certificates-box {
+        background: var(--bg-color) !important;
+        border: .2rem solid rgba(255, 0, 128, 0.3) !important;
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        transition: all 0.3s ease !important;
+        cursor: pointer !important;
+    }
+
+    .certificates-container .certificates-box:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4) !important;
+    }
+
+    .certificates-container .certificates-box h3,
+    .certificates-container .certificates-box p {
+        color: var(--text-color) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Footer mobile styling */
+    .footer {
+        background: var(--snd-bg-color) !important;
+    }
+
+    /* Headers mobile styling */
+    .skills h2,
+    .certificates h2,
+    .projects h2 {
+        color: var(--text-color) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Disable scroll reveal animations on mobile */
+    .skills-container .skills-box,
+    .certificates-container .certificates-box {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    /* Project tech tags styling */
+    .project-tech {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin: 1rem 0 !important;
+    }
+
+    .tech-tag {
+        background: rgba(0, 255, 255, 0.1) !important;
+        color: var(--main-color) !important;
+        padding: 0.3rem 0.8rem !important;
+        border-radius: 1rem !important;
+        font-size: 1.2rem !important;
+        border: 1px solid rgba(0, 255, 255, 0.3) !important;
+    }
+
+    .project-type {
+        color: var(--accent-color) !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
+    }
 }
 
 @media (max-width: 617px) {
@@ -683,18 +882,31 @@ span {
     }
 
     .home-img img {
-        width: 89vw;
-        margin-top: 8rem;
+        width: 60vw;
+        margin-top: 6rem;
     }
 
     .about-img img {
-        width: 100vw;
-        margin-top: 4rem;
+        width: 80vw;
+        margin-top: 3rem;
     }
 
-    .skills-container .skills-box {
-        flex: 0 0 100%;
-        max-width: 32rem;
+    /* Extra small mobile adjustments */
+    .cyber-avatar {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .matrix-container {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .skills-container,
+    .certificates-container,
+    .projects-container {
+        max-width: 40rem;
+        padding: 0 1rem;
     }
 }
 
@@ -703,13 +915,40 @@ span {
         font-size: 50%;
     }
 
-    .skills {
-        padding: 3rem 1.5%;
+    .home-content h1 {
+        font-size: 4rem;
     }
 
-    .skills-container .skills-box {
-        max-width: 28rem;
-        padding: 2rem 1rem 2.5rem;
+    .home-content h3 {
+        font-size: 2.2rem;
+    }
+
+    .home-img img {
+        width: 50vw;
+        margin-top: 4rem;
+    }
+
+    .cyber-avatar {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .matrix-container {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .skills-container,
+    .certificates-container,
+    .projects-container {
+        max-width: 35rem;
+        gap: 1.5rem;
+    }
+
+    .skills-container .skills-box,
+    .certificates-container .certificates-box,
+    .projects-container .projects-box {
+        padding: 1.5rem;
     }
 
     .futuristic-avatar,
