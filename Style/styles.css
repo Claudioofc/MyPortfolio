@@ -635,6 +635,21 @@ span {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .futuristic-avatar,
+    .futuristic-avatar-about {
+        width: 20rem;
+        height: 20rem;
+    }
+    
+    .avatar-circle,
+    .avatar-hexagon {
+        width: 16rem;
+        height: 16rem;
+    }
+    
+    .avatar-eyes {
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 617px) {
@@ -658,6 +673,17 @@ span {
         font-size: 50%;
     }
 
+    .futuristic-avatar,
+    .futuristic-avatar-about {
+        width: 18rem;
+        height: 18rem;
+    }
+    
+    .avatar-circle,
+    .avatar-hexagon {
+        width: 14rem;
+        height: 14rem;
+    }
 }
 
 #typing-effect {
@@ -681,5 +707,640 @@ span {
 @keyframes blink {
     50% {
         border-color: transparent;
+    }
+}
+
+/* ======= FUTURISTIC AVATAR STYLES ======= */
+
+/* Home Avatar - Circular Cyber Design */
+.futuristic-avatar {
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatar-circle {
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    background: linear-gradient(45deg, 
+        var(--main-color) 0%, 
+        transparent 50%, 
+        var(--accent-color) 100%);
+    border-radius: 50%;
+    padding: 4px;
+    animation: avatarRotate 10s linear infinite;
+}
+
+.avatar-face {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(16, 21, 62, 0.95) 50%, 
+        var(--bg-color) 100%);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.avatar-eyes {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.eye {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    position: relative;
+    animation: eyeGlow 2s ease-in-out infinite alternate;
+}
+
+.eye::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.8rem;
+    height: 0.8rem;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: pupilMove 3s ease-in-out infinite;
+}
+
+.avatar-scan-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        rgba(0, 255, 255, 0.1) 1px,
+        transparent 2px,
+        transparent 10px
+    );
+    animation: scanLines 2s linear infinite;
+}
+
+.avatar-glow {
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    right: -2rem;
+    bottom: -2rem;
+    background: radial-gradient(circle, 
+        rgba(0, 255, 255, 0.3) 0%, 
+        transparent 70%);
+    border-radius: 50%;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.avatar-border {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--main-color), var(--accent-color)) padding-box,
+                linear-gradient(45deg, var(--main-color), transparent, var(--accent-color)) border-box;
+    animation: borderRotate 8s linear infinite;
+}
+
+/* About Avatar - Hexagonal Hologram Design */
+.futuristic-avatar-about {
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatar-hexagon {
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.2) 0%, 
+        rgba(255, 0, 128, 0.2) 100%);
+    animation: hexFloat 4s ease-in-out infinite;
+}
+
+.hex-inner {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(16, 21, 62, 0.9) 50%, 
+        var(--bg-color) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-hologram {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.holo-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        rgba(0, 255, 255, 0.2) 1px,
+        transparent 2px,
+        transparent 15px
+    );
+    animation: holoMove 3s linear infinite;
+}
+
+.holo-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(0deg, transparent 0px, rgba(255, 0, 128, 0.1) 1px, transparent 2px, transparent 20px),
+        repeating-linear-gradient(90deg, transparent 0px, rgba(255, 0, 128, 0.1) 1px, transparent 2px, transparent 20px);
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+.central-core {
+    width: 4rem;
+    height: 4rem;
+    background: radial-gradient(circle, 
+        var(--main-color) 0%, 
+        var(--accent-color) 50%, 
+        transparent 100%);
+    border-radius: 50%;
+    position: relative;
+    animation: coreRotate 6s linear infinite;
+}
+
+.central-core::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    height: 2rem;
+    background: var(--text-color);
+    border-radius: 50%;
+    animation: innerPulse 2s ease-in-out infinite;
+}
+
+.hex-glow {
+    position: absolute;
+    top: -3rem;
+    left: -3rem;
+    right: -3rem;
+    bottom: -3rem;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: radial-gradient(circle, 
+        rgba(255, 0, 128, 0.4) 0%, 
+        transparent 70%);
+    animation: hexGlow 3s ease-in-out infinite;
+}
+
+/* ======= ANIMATIONS ======= */
+
+@keyframes avatarRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes eyeGlow {
+    0% { box-shadow: 0 0 10px var(--main-color); }
+    100% { box-shadow: 0 0 20px var(--main-color), 0 0 30px var(--main-color); }
+}
+
+@keyframes pupilMove {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-30%, -30%) scale(0.8); }
+}
+
+@keyframes scanLines {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes borderRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes hexFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes holoMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes coreRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes innerPulse {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@keyframes hexGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ======= NEW CYBER AVATAR - NEURAL NETWORK DESIGN ======= */
+
+.cyber-avatar {
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.matrix-container {
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    background: radial-gradient(circle at center, 
+        rgba(0, 255, 255, 0.05) 0%, 
+        transparent 70%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neural-network {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.central-node {
+    width: 8rem;
+    height: 8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.core-brain {
+    width: 6rem;
+    height: 6rem;
+    background: radial-gradient(circle, 
+        var(--main-color) 0%, 
+        rgba(0, 255, 255, 0.8) 30%, 
+        var(--accent-color) 70%, 
+        transparent 100%);
+    border-radius: 50%;
+    position: relative;
+    animation: brainPulse 3s ease-in-out infinite;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.6),
+        inset 0 0 20px rgba(255, 0, 128, 0.3);
+}
+
+.core-brain::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    background: var(--text-color);
+    border-radius: 50%;
+    animation: coreFlicker 2s ease-in-out infinite;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    animation: ringPulse 4s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.pulse-ring::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    animation: ringPulse 4s ease-in-out infinite 2s;
+}
+
+.connection-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--main-color) 50%, 
+        transparent 100%);
+    opacity: 0.6;
+    animation: dataFlow 3s linear infinite;
+}
+
+.line-1 {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+    animation-delay: 0s;
+}
+
+.line-2 {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%) rotate(60deg);
+    animation-delay: 0.5s;
+}
+
+.line-3 {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%) rotate(120deg);
+    animation-delay: 1s;
+}
+
+.line-4 {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%) rotate(30deg);
+    animation-delay: 1.5s;
+}
+
+.line-5 {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%) rotate(90deg);
+    animation-delay: 2s;
+}
+
+.line-6 {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%) rotate(150deg);
+    animation-delay: 2.5s;
+}
+
+.orbital-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 50%;
+    border-top-color: var(--main-color);
+    border-right-color: var(--accent-color);
+    opacity: 0.4;
+}
+
+.ring-1 {
+    width: 15rem;
+    height: 15rem;
+    animation: orbitSpin 8s linear infinite;
+}
+
+.ring-2 {
+    width: 20rem;
+    height: 20rem;
+    animation: orbitSpin 12s linear infinite reverse;
+}
+
+.ring-3 {
+    width: 25rem;
+    height: 25rem;
+    animation: orbitSpin 16s linear infinite;
+}
+
+.digital-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 50%;
+    animation: particleFloat 6s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.p1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.p2 {
+    top: 30%;
+    right: 20%;
+    animation-delay: 1.2s;
+}
+
+.p3 {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 2.4s;
+}
+
+.p4 {
+    bottom: 35%;
+    right: 15%;
+    animation-delay: 3.6s;
+}
+
+.p5 {
+    top: 45%;
+    left: 10%;
+    animation-delay: 4.8s;
+}
+
+.energy-field {
+    position: absolute;
+    top: -5rem;
+    left: -5rem;
+    right: -5rem;
+    bottom: -5rem;
+    background: radial-gradient(circle, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 128, 0.05) 50%, 
+        transparent 70%);
+    border-radius: 50%;
+    animation: energyPulse 5s ease-in-out infinite;
+}
+
+/* ======= NEW CYBER ANIMATIONS ======= */
+
+@keyframes brainPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(255, 0, 128, 0.3);
+    }
+    50% { 
+        transform: scale(1.1);
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(255, 0, 128, 0.5);
+    }
+}
+
+@keyframes coreFlicker {
+    0%, 100% { opacity: 1; }
+    25% { opacity: 0.7; }
+    50% { opacity: 0.9; }
+    75% { opacity: 0.8; }
+}
+
+@keyframes ringPulse {
+    0% { 
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.3;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes dataFlow {
+    0% { 
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    50% { 
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    100% { 
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+
+@keyframes orbitSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes particleFloat {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.8;
+    }
+    33% { 
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+    }
+    66% { 
+        transform: translateY(10px) scale(0.8);
+        opacity: 0.6;
+    }
+}
+
+@keyframes energyPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        transform: scale(1.05);
     }
 }
