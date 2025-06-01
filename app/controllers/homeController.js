@@ -77,6 +77,10 @@ angular.module('portfolioApp')
             {
                 name: 'Back-end',
                 icon: 'fa-solid fa-file-code'
+            },
+            {
+                name: 'Git',
+                icon: 'fa-brands fa-git-alt'
             }
         ];
 
