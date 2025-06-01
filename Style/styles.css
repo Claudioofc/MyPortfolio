@@ -26,9 +26,13 @@ html {
 }
 
 body {
-    background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #0d1b2a, #16213e);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    background: var(--bg-color);
+    background: linear-gradient(135deg, 
+        #0a0a0a 0%, 
+        #1a1a2e 25%, 
+        #0d1b2a 50%, 
+        #16213e 75%, 
+        #0a0a0a 100%);
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
@@ -45,11 +49,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #0d1b2a 50%, #16213e 75%, #0a0a0a 100%);
+    z-index: -2;
+    animation: gradientShift 8s ease infinite;
+    background-size: 400% 400%;
 }
 
 @keyframes gradientShift {
@@ -602,14 +605,8 @@ span {
     }
 
     .home-content {
-        order: 1;
         text-align: center;
         margin-bottom: 4rem;
-    }
-
-    .home-img {
-        order: 2;
-        margin-top: 2rem;
     }
 
     .home-content h3 {
@@ -618,36 +615,34 @@ span {
 
     .home-content h1 {
         font-size: 4.5rem;
+        margin: 2rem 0;
+    }
+
+    .home-img {
+        order: 1;
+        margin-bottom: 3rem;
     }
 
     .home-img img {
         width: 70vw;
         max-width: 300px;
-        margin-top: 2rem;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid var(--main-color);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     }
 
     .about {
         flex-direction: column;
-        padding: 8rem 3% 2rem;
+        padding: 6rem 3% 2rem;
         text-align: center;
     }
 
     .about-img {
         order: 1;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
 
-    .about-content {
-        order: 2;
-    }
-
-    .about-img img {
-        width: 70vw;
-        max-width: 300px;
-        margin-top: 2rem;
-    }
-
-    /* Cyber Avatar Mobile Adjustments */
     .cyber-avatar {
         width: 25rem;
         height: 25rem;
@@ -660,72 +655,85 @@ span {
     }
 
     .skills {
-        padding: 8rem 3% 2rem;
-        text-align: center;
+        padding: 6rem 3% 2rem;
+        background: var(--snd-bg-color);
     }
 
     .skills h2 {
-        margin-bottom: 3rem;
-        font-size: 3.5rem;
+        margin-bottom: 4rem;
+        font-size: 3rem;
+        color: var(--main-color);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     }
 
     .skills-container {
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: 600px;
     }
 
-    .skills-container .skills-box {
-        flex: 0 0 calc(50% - 1rem);
-        min-width: 140px;
+    .skills-box {
         padding: 2rem 1rem 3rem;
+        background: linear-gradient(135deg, 
+            rgba(0, 255, 255, 0.1) 0%, 
+            rgba(26, 26, 46, 0.9) 50%, 
+            rgba(22, 33, 62, 0.9) 100%);
+        border: 2px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .skills-box:hover {
+        transform: scale(1.02);
+        border-color: var(--main-color);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
     }
 
     .skills-box i {
         font-size: 2.5rem;
+        color: var(--main-color);
         margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
     }
 
     .skills-box h3 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
     }
 
     .certificates {
-        padding: 8rem 3% 2rem;
+        padding: 6rem 3% 2rem;
     }
 
     .certificates h2 {
-        margin-bottom: 3rem;
-        font-size: 3.5rem;
+        margin-bottom: 4rem;
+        font-size: 3rem;
+        color: var(--main-color);
     }
 
     .certificates-container {
+        grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 1rem;
-    }
-
-    .certificates-container .certificates-box {
-        flex: 0 0 calc(100% - 2rem);
-        padding: 2rem 1.5rem 3rem;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .projects {
-        padding: 8rem 3% 2rem;
+        padding: 6rem 3% 2rem;
     }
 
     .projects h2 {
-        margin-bottom: 3rem;
-        font-size: 3.5rem;
+        margin-bottom: 4rem;
+        font-size: 3rem;
+        color: var(--main-color);
     }
 
     .projects-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 0 1rem;
-    }
-
-    .projects-container .projects-box {
-        flex: 0 0 100%;
-        padding: 2rem 1.5rem 3rem;
+        gap: 2rem;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .futuristic-avatar,
@@ -743,27 +751,164 @@ span {
     .avatar-eyes {
         gap: 2rem;
     }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .home-img img {
+        animation: floatImage 4s ease-in-out infinite;
+    }
+
+    .section {
+        background: rgba(16, 21, 62, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 255, 255, 0.1);
+    }
+
+    /* Garantir que o avatar cyber aparece corretamente */
+    .cyber-avatar .neural-network {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .cyber-avatar .central-node {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .cyber-avatar .core-brain {
+        opacity: 1;
+        visibility: visible;
+        animation: brainPulse 2s ease-in-out infinite;
+    }
+
+    /* Mobile typography fixes */
+    .home-content h1 {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .home-content h3 {
+        color: var(--main-color);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Skills visibility fix */
+    .skills {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+
+    .skills-container {
+        opacity: 1;
+        visibility: visible;
+        display: grid;
+    }
+
+    .skills-box {
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 617px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     .projects-container {
         grid-template-columns: 1fr;
     }
 
     .home-img img {
-        width: 89vw;
-        margin-top: 8rem;
+        width: 80vw;
+        max-width: 250px;
     }
 
-    .about-img img {
-        width: 100vw;
-        margin-top: 4rem;
+    .cyber-avatar {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .matrix-container {
+        width: 18rem;
+        height: 18rem;
     }
 }
 
 @media (max-width: 450px) {
     html {
         font-size: 50%;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.2rem;
+    }
+
+    .home-img img {
+        width: 75vw;
+        max-width: 200px;
+    }
+
+    .cyber-avatar {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .matrix-container {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .core-brain {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .pulse-ring {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .skills h2,
+    .certificates h2,
+    .projects h2 {
+        font-size: 2.5rem;
+    }
+
+    .skills-box {
+        padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .skills-box i {
+        font-size: 2rem;
+    }
+
+    .skills-box h3 {
+        font-size: 1.8rem;
     }
 
     .futuristic-avatar,
@@ -1435,5 +1580,47 @@ span {
     50% { 
         opacity: 0.7;
         transform: scale(1.05);
+    }
+}
+
+/* Force cyber theme visibility on all screen sizes */
+@media screen and (max-width: 1024px) {
+    :root {
+        --bg-color: #0a0a0a;
+        --snd-bg-color: #1a1a2e;
+        --text-color: #ffffff;
+        --main-color: #00ffff;
+        --accent-color: #ff0080;
+    }
+
+    body {
+        background: linear-gradient(135deg, 
+            #0a0a0a 0%, 
+            #1a1a2e 25%, 
+            #0d1b2a 50%, 
+            #16213e 75%, 
+            #0a0a0a 100%) !important;
+        animation: gradientShift 8s ease infinite;
+        background-size: 400% 400%;
+    }
+
+    .home {
+        background: rgba(16, 21, 62, 0.1);
+    }
+
+    .about {
+        background: rgba(26, 26, 46, 0.1);
+    }
+
+    .skills {
+        background: rgba(13, 27, 42, 0.1) !important;
+    }
+
+    .certificates {
+        background: rgba(22, 33, 62, 0.1);
+    }
+
+    .projects {
+        background: rgba(16, 21, 62, 0.1);
     }
 }
