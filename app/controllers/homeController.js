@@ -4,8 +4,8 @@ angular.module('portfolioApp')
         $scope.personal = {
             name: 'Cláudio Souza',
             role: 'Desenvolvedor Full Stack',
-            about: 'Sou desenvolvedor Full Stack em formação, cursando Análise e Desenvolvimento de Sistemas, com sólida base em C#, .NET e SQL. Tenho experiência prática adquirida através de projetos pessoais, estudos independentes e participação em cursos como "Introdução ao Desenvolvimento com C#" da Udemy. Atuo tanto no front-end quanto no back-end, com foco em boas práticas, orientação a objetos e soluções eficientes. Também pratico desafios de programação em plataformas como HackerRank e LeetCode, buscando constantemente evoluir minhas habilidades em lógica e desenvolvimento de software. Sou proativo, comunicativo e tenho facilidade para aprender novas tecnologias e trabalhar em equipe.',
-            cv: 'images/pdfs/CV_Claudio_Souza.pdf'
+            about: 'Desenvolvedor Full Stack em formação, atualmente cursando Análise e Desenvolvimento de Sistemas. Possuo sólida base técnica em C#, .NET e SQL Server, com experiência prática adquirida através de projetos pessoais e estudos independentes.\n\nMinhas habilidades abrangem tanto front-end quanto back-end, sempre com foco em boas práticas de programação, orientação a objetos e desenvolvimento de soluções eficientes. Complemento minha formação com cursos especializados, incluindo "Introdução ao Desenvolvimento com C#" da Udemy.\n\nPara aprimorar constantemente minha lógica de programação, pratico regularmente desafios em plataformas como HackerRank e LeetCode. Sou uma pessoa proativa, comunicativa e com grande facilidade para aprender novas tecnologias e trabalhar colaborativamente em equipe.',
+            cv: 'images/pdfs/Curriculo_FullStack.pdf'
         };
 
         // Links de redes sociais
@@ -170,12 +170,43 @@ angular.module('portfolioApp')
                 url: 'https://portfoliocafeteria.netlify.app/',
                 technologies: ['HTML5', 'CSS3', 'JavaScript'],
                 type: 'Website Comercial'
+            },
+            {
+                title: 'Landing Page',
+                description: 'Landing page responsiva com múltiplas seções: introdução, galeria de imagens, pricing table e formulário de contato',
+                url: 'https://claudioofc.github.io/LandingPage/',
+                technologies: ['HTML5', 'CSS3', 'JavaScript'],
+                type: 'Landing Page'
             }
         ];
 
         // Função para visualizar CV
         $scope.viewCV = function() {
-            window.open($scope.personal.cv, '_blank');
+            try {
+                // Primeiro tenta abrir o PDF diretamente
+                const cvUrl = $scope.personal.cv;
+                const fullUrl = window.location.origin + '/' + cvUrl;
+                
+                // Cria um link temporário para download/visualização
+                const link = document.createElement('a');
+                link.href = cvUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                
+                // Adiciona evento para capturar erros
+                link.onerror = function() {
+                    alert('Erro ao abrir o currículo. Tente novamente ou entre em contato.');
+                };
+                
+                // Simula clique no link
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+            } catch (error) {
+                console.error('Erro ao abrir CV:', error);
+                alert('Erro ao abrir o currículo. Verifique se o arquivo existe.');
+            }
         };
 
         // Função para abrir certificado
