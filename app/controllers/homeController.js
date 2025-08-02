@@ -160,7 +160,7 @@ angular.module('portfolioApp')
             {
                 title: 'Dr Pedro Romeiro',
                 description: 'Site institucional para clínica odontológica especializada em estética e reabilitação oral',
-                url: 'drpedroromeiro.com.br',
+                url: 'https://www.drpedroromeiro.com.br/',
                 technologies: ['AngularJS', 'HTML5', 'CSS3', 'JavaScript'],
                 type: 'Website Institucional'
             },
