@@ -158,9 +158,9 @@ angular.module('portfolioApp')
         // Projetos
         $scope.projects = [
             {
-                title: 'Romeiro e Lacerda',
+                title: 'Pedro Romeiro',
                 description: 'Site institucional para clínica odontológica especializada em estética e reabilitação oral',
-                url: 'https://romeiroelacerda.com.br/',
+                url: 'drpedroromeiro.com.br',
                 technologies: ['AngularJS', 'HTML5', 'CSS3', 'JavaScript'],
                 type: 'Website Institucional'
             },
