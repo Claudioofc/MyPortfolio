@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de Favicon</title>
+    <style>
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+        .size-info { text-align: center; margin-top: 5px; font-family: Arial; }
+    </style>
+</head>
+<body>
+    <h1>Favicon Generator - CS</h1>
+    <div class="container">
+        <div>
+            <canvas id="canvas16" width="16" height="16"></canvas>
+            <div class="size-info">16x16</div>
+        </div>
+        <div>
+            <canvas id="canvas32" width="32" height="32"></canvas>
+            <div class="size-info">32x32</div>
+        </div>
+        <div>
+            <canvas id="canvas180" width="180" height="180"></canvas>
+            <div class="size-info">180x180 (Apple)</div>
+        </div>
+    </div>
+    
+    <div style="margin: 20px;">
+        <button onclick="downloadAll()">Download All Favicons</button>
+    </div>
+
+    <script>
+        function drawFavicon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            const scale = size / 64;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Background gradient
+            const bgGradient = ctx.createLinearGradient(0, 0, size, size);
+            bgGradient.addColorStop(0, '#0a0a0a');
+            bgGradient.addColorStop(0.5, '#1a1a2e');
+            bgGradient.addColorStop(1, '#16213e');
+            
+            // Draw background circle
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, (30 * scale), 0, 2 * Math.PI);
+            ctx.fillStyle = bgGradient;
+            ctx.fill();
+            ctx.strokeStyle = '#00ffff';
+            ctx.lineWidth = 2 * scale;
+            ctx.stroke();
+            
+            // Glow effect
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, (28 * scale), 0, 2 * Math.PI);
+            ctx.strokeStyle = 'rgba(0, 255, 255, 0.3)';
+            ctx.lineWidth = 1 * scale;
+            ctx.stroke();
+            
+            // CS Text
+            const fontSize = Math.max(12, 24 * scale);
+            ctx.font = `bold ${fontSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Text gradient
+            const textGradient = ctx.createLinearGradient(0, 0, size, size);
+            textGradient.addColorStop(0, '#00ffff');
+            textGradient.addColorStop(1, '#ff0080');
+            
+            ctx.fillStyle = textGradient;
+            ctx.strokeStyle = '#00ffff';
+            ctx.lineWidth = 0.5 * scale;
+            ctx.fillText('CS', size/2, size/2 + (2 * scale));
+            ctx.strokeText('CS', size/2, size/2 + (2 * scale));
+            
+            // Tech lines decoration (only for larger sizes)
+            if (size >= 32) {
+                ctx.lineWidth = 1 * scale;
+                
+                // Top lines
+                ctx.strokeStyle = 'rgba(0, 255, 255, 0.6)';
+                ctx.beginPath();
+                ctx.moveTo(8 * scale, 16 * scale);
+                ctx.lineTo(20 * scale, 16 * scale);
+                ctx.stroke();
+                
+                ctx.strokeStyle = 'rgba(255, 0, 128, 0.6)';
+                ctx.beginPath();
+                ctx.moveTo(44 * scale, 16 * scale);
+                ctx.lineTo(56 * scale, 16 * scale);
+                ctx.stroke();
+                
+                // Bottom lines
+                ctx.strokeStyle = 'rgba(255, 0, 128, 0.6)';
+                ctx.beginPath();
+                ctx.moveTo(8 * scale, 48 * scale);
+                ctx.lineTo(20 * scale, 48 * scale);
+                ctx.stroke();
+                
+                ctx.strokeStyle = 'rgba(0, 255, 255, 0.6)';
+                ctx.beginPath();
+                ctx.moveTo(44 * scale, 48 * scale);
+                ctx.lineTo(56 * scale, 48 * scale);
+                ctx.stroke();
+                
+                // Corner dots
+                const dotRadius = 2 * scale;
+                
+                ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(12 * scale, 12 * scale, dotRadius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(255, 0, 128, 0.8)';
+                ctx.beginPath();
+                ctx.arc(52 * scale, 12 * scale, dotRadius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(255, 0, 128, 0.8)';
+                ctx.beginPath();
+                ctx.arc(12 * scale, 52 * scale, dotRadius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(52 * scale, 52 * scale, dotRadius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadAll() {
+            downloadCanvas(document.getElementById('canvas16'), 'favicon-16x16.png');
+            downloadCanvas(document.getElementById('canvas32'), 'favicon-32x32.png');
+            downloadCanvas(document.getElementById('canvas180'), 'apple-touch-icon.png');
+        }
+        
+        // Generate favicons on load
+        window.onload = function() {
+            drawFavicon(document.getElementById('canvas16'), 16);
+            drawFavicon(document.getElementById('canvas32'), 32);
+            drawFavicon(document.getElementById('canvas180'), 180);
+        };
+    </script>
+</body>
+</html> 

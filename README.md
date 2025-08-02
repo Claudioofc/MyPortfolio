@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Portfolio - Cláudio Souza
 
-Currently, two official plugins are available:
+Portfolio pessoal desenvolvido em AngularJS, apresentando informações profissionais, habilidades e projetos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- **AngularJS 1.8.3** - Framework JavaScript
+- **HTML5** - Estrutura
+- **CSS3** - Estilização
+- **Font Awesome** - Ícones
+- **ScrollReveal** - Animações de scroll
+- **Typed.js** - Efeito de digitação
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estrutura do Projeto
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+my-portfolio/
+├── app/
+│   ├── controllers/
+│   │   └── homeController.js
+│   ├── directives/
+│   │   └── typingEffect.js
+│   ├── services/
+│   │   └── navigationService.js
+│   ├── views/
+│   │   └── home.html
+│   └── app.js
+├── images/
+├── Style/
+│   └── styles.css
+├── index.html
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como Executar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Instalar dependências:**
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. **Executar o projeto:**
+   ```bash
+   npm start
+   ```
+
+3. **Acessar no navegador:**
+   ```
+   http://localhost:3000
+   ```
+
+## Funcionalidades
+
+- ✅ **Single Page Application (SPA)** com AngularJS
+- ✅ **Design Responsivo** 
+- ✅ **Navegação suave** entre seções
+- ✅ **Efeito de digitação** no texto principal
+- ✅ **Animações de scroll** com ScrollReveal
+- ✅ **Menu mobile** responsivo
+- ✅ **Links para redes sociais** e CV
+
+## Seções
+
+- **Início** - Apresentação pessoal com links sociais
+- **Sobre Mim** - Informações profissionais e experiência
+- **Habilidades** - Tecnologias e competências
+- **Projetos** - Portfolio de trabalhos (em desenvolvimento)
+
+## Contato
+
+- **Email:** claudioelias12@gmail.com
+- **LinkedIn:** [linkedin.com/in/claudio-elias/](https://www.linkedin.com/in/claudio-elias/)
+- **GitHub:** [github.com/Claudioofc](https://github.com/Claudioofc)
+- **WhatsApp:** [+55 38 99236-6394](https://wa.me/5538992366394)
+
+## Licença
+
+MIT License - veja o arquivo LICENSE para detalhes.
+

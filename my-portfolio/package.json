@@ -1,0 +1,24 @@
+{
+  "name": "claudio-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio pessoal de Cláudio Souza desenvolvido em AngularJS",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -a localhost -p 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "angularjs",
+    "frontend"
+  ],
+  "author": "Cláudio Souza",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.8.3",
+    "angular-route": "^1.8.3"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+} 

@@ -1,0 +1,130 @@
+<!---HEADER-->
+<header class="header">
+    <a href="#" class="logo">Portfólio</a>
+
+    <i class="fa-solid fa-bars" id="menu-icon" ng-click="toggleMenu()"></i>
+
+    <nav class="navbar">
+        <a ng-repeat="item in navItems" 
+           href="{{item.href}}" 
+           ng-class="{'active': item.active}"
+           ng-click="setActiveNav(item); scrollTo(item.href)">
+           {{item.name}}
+        </a>
+    </nav>
+</header>
+
+<!---HOME SECTION DESIGN-->
+<section class="home" id="home">
+    <div class="home-content">
+        <h1>{{personal.name}}</h1>
+        <h3>Desenvolvedor <span typing-effect text="{{personal.role}}"></span></h3>
+        <div class="social-media">
+            <a ng-repeat="social in socialMedia" 
+               href="{{social.url}}" 
+               target="_blank">
+               <i class="{{social.icon}}"></i>
+            </a>
+        </div>
+        <button class="btn" ng-click="viewCV()">Visualizar CV</button>
+    </div>
+
+    <div class="home-img">
+        <img src="images/avatar.jpg" alt="Avatar">
+    </div>
+</section>
+
+<!---ABOUT SECTION DESIGN-->
+<section class="about" id="about">
+    <div class="about-img">
+        <div class="cyber-avatar">
+            <div class="matrix-container">
+                <div class="neural-network">
+                    <div class="node central-node">
+                        <div class="pulse-ring"></div>
+                        <div class="core-brain"></div>
+                    </div>
+                    <div class="connection-lines">
+                        <div class="line line-1"></div>
+                        <div class="line line-2"></div>
+                        <div class="line line-3"></div>
+                        <div class="line line-4"></div>
+                        <div class="line line-5"></div>
+                        <div class="line line-6"></div>
+                    </div>
+                    <div class="orbital-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                </div>
+                <div class="digital-particles">
+                    <div class="particle p1"></div>
+                    <div class="particle p2"></div>
+                    <div class="particle p3"></div>
+                    <div class="particle p4"></div>
+                    <div class="particle p5"></div>
+                </div>
+                <div class="energy-field"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-content">
+        <h2 class="heading">Sobre <span>Mim</span></h2>
+        <p>{{personal.about}}</p>
+    </div>
+</section>
+
+<!---SKILLS SECTION DESIGN-->
+<section class="skills" id="skills">
+    <h2 class="skills-title">Minhas <span>Habilidades</span></h2>
+
+    <div class="skills-container">
+        <div class="skills-box" ng-repeat="skill in skills">
+            <i ng-if="!skill.isImage" class="{{skill.icon}}"></i>
+            <img ng-if="skill.isImage" src="{{skill.icon}}" alt="{{skill.name}}">
+            <h3>{{skill.name}}</h3>
+        </div>
+    </div>
+</section>
+
+<!---CERTIFICATES SECTION DESIGN-->
+<section class="certificates" id="certificates">
+    <h2 class="heading">Meus <span>Certificados</span></h2>
+
+    <div class="certificates-container">
+        <div class="certificates-box" ng-repeat="certificate in certificates" ng-click="openCertificate(certificate.url)">
+            <h3>{{certificate.title}}</h3>
+            <p>{{certificate.institution}}</p>
+        </div>
+    </div>
+</section>
+
+<!---PROJECTS SECTION DESIGN-->
+<section class="projects" id="projects">
+    <h2 class="heading">Meus <span>Projetos</span></h2>
+
+    <div class="projects-container">
+        <div class="projects-box" ng-repeat="project in projects" ng-click="openProject(project.url)">
+            <i class="fa-solid fa-globe"></i>
+            <h3>{{project.title}}</h3>
+            <p>{{project.description}}</p>
+            <div class="project-tech">
+                <span class="tech-tag" ng-repeat="tech in project.technologies">{{tech}}</span>
+            </div>
+            <span class="project-type">{{project.type}}</span>
+        </div>
+    </div>
+</section>
+
+<!---FOOTER SECTION DESIGN-->
+<footer class="footer">
+    <div class="footer-text">
+        <p>Copyright &copy; 2025 by {{personal.name}} | Todos os direitos reservados.</p>
+    </div>
+
+    <div class="footer-iconTop">
+        <a href="#home" ng-click="scrollTo('#home')"><i class="fa-solid fa-angle-up"></i></a>
+    </div>
+</footer> 
