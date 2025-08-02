@@ -158,7 +158,7 @@ angular.module('portfolioApp')
         // Projetos
         $scope.projects = [
             {
-                title: 'Pedro Romeiro',
+                title: 'Dr Pedro Romeiro',
                 description: 'Site institucional para clínica odontológica especializada em estética e reabilitação oral',
                 url: 'drpedroromeiro.com.br',
                 technologies: ['AngularJS', 'HTML5', 'CSS3', 'JavaScript'],
